@@ -1,1 +1,33 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Noto Sans KR Variable', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+}
+
+.scroll-opacity {
+  animation: fade-in linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 240px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.98;
+    translate: 0 100px;
+  }
+}
