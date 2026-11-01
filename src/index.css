@@ -1,11 +1,35 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Noto Sans KR Variable', system-ui, sans-serif;
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', sans-serif;
 }
 
-body {
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html.lenis {
+  scroll-behavior: auto;
+}
+
+.os-scrollbar.os-theme-dark {
+  --os-size: 10px;
+  --os-padding-axis: 4px;
+  --os-padding-perpendicular: 2px;
+  --os-handle-border-radius: 999px;
+  --os-handle-bg: rgba(86, 137, 201, 0.48);
+  --os-handle-bg-hover: rgba(86, 137, 201, 0.7);
+  --os-handle-bg-active: rgba(59, 110, 180, 0.8);
+}
+
+html {
   font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,19 +38,44 @@ button {
   cursor: pointer;
 }
 
+.technology-badge {
+  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
 .scroll-opacity {
   animation: fade-in linear both;
   animation-timeline: scroll();
   animation-range: 0px 300px;
 }
 
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .contact-reveal {
+      animation: contact-appear linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+  }
+}
+
+@keyframes contact-appear {
+  from {
+    opacity: 0;
+    translate: 0 -160px;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 1;
-    scale: 1;
   }
   to {
     opacity: 0;
     translate: 0 160px;
   }
 }
+

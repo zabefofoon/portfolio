@@ -1,3 +1,10 @@
+import { lazy, Suspense } from 'react'
+import ScrollGears from './ScrollGears'
+import SectionNav from './SectionNav'
+import SmoothScroll from './SmoothScroll'
+
+const GearBackground = lazy(() => import('./GearBackground'))
+
 type Project = {
   name: string
   url: string
@@ -398,11 +405,17 @@ function App() {
 
   return (
     <>
-      {/* <header>header</header> */}
-      <main className="bg-linear-to-br from-blue-50 to-blue-300 text-gray-900">
+      <SmoothScroll />
+      <main id="top" className="overflow-x-clip bg-blue-200 text-gray-900">
         {/* 상단 영역 */}
-        <section className="scroll-opacity mx-auto -mb-10 flex max-w-200 flex-col items-center justify-center pb-10">
-          <div className="flex w-full items-start gap-5 py-60">
+        <section
+          id="about"
+          className="scroll-opacity relative flex w-full flex-col items-center justify-center overflow-hidden bg-linear-to-b from-blue-50 to-blue-200 px-5 pb-10"
+        >
+          <Suspense fallback={null}>
+            <GearBackground />
+          </Suspense>
+          <div className="relative z-10 flex w-full max-w-200 flex-col items-start gap-5 py-28 sm:flex-row sm:py-40 lg:py-44">
             <figure className="flex shrink-0 flex-col items-center gap-2">
               <img
                 className="border-border aspect-square size-32 rounded-full border border-gray-200"
@@ -414,18 +427,18 @@ function App() {
               </figcaption>
             </figure>
             <div className="w-full">
-              <h1 className="text-2xl leading-[140%] whitespace-pre-wrap">
+              <h1 className="text-4xl leading-[140%] font-bold tracking-tight whitespace-pre-wrap">
                 {`정상우`}
               </h1>
               <p className="mt-1 text-sm leading-[140%] font-semibold whitespace-pre-wrap text-blue-500">
                 #프론트엔드 #7년차
               </p>
               <div className="mt-5 w-full">
-                <h3 className="text-[15px] font-semibold">
+                <h3 className="text-lg font-semibold">
                   프로젝트 세팅부터, 배포 및 출시까지
                 </h3>
                 <div
-                  className="mt-2 items-center justify-center text-left text-[15px] leading-relaxed text-pretty break-keep whitespace-pre-wrap"
+                  className="mt-3 max-w-[65ch] text-left text-[15px] leading-[1.8] text-pretty break-keep whitespace-pre-wrap text-slate-800"
                   dangerouslySetInnerHTML={{ __html: aboutContent }}
                 ></div>
               </div>
@@ -433,11 +446,14 @@ function App() {
           </div>
         </section>
         {/* 상단 영역 */}
-        <div className="relative z-1 mx-auto flex max-w-[1920px] flex-col items-center rounded-t-4xl bg-white p-10">
+
+        {/* 흰 컨텐츠 */}
+        <div className="relative z-1 mx-auto flex w-[calc(100%-240px)] flex-col items-center rounded-4xl bg-blue-50 p-10 shadow-2xl">
+          <ScrollGears />
           {/* 타임라인 */}
-          <section className="relative w-full py-20">
-            <h2 className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rotate-270 text-3xl font-bold text-gray-200">
-              TIMELINE
+          <section id="experience" className="relative w-full py-20">
+            <h2 className="mx-auto mb-8 max-w-240 text-2xl font-bold tracking-tight">
+              이력
             </h2>
             <div className="flex items-start justify-center">
               <div className="flex items-center justify-center">
@@ -521,7 +537,7 @@ function App() {
                           <img
                             src="/resources/images/running.gif"
                             alt=""
-                            className="absolute -bottom-2 -left-4.5 size-9"
+                            className="absolute -bottom-2 -left-4.5 size-9 mix-blend-multiply"
                           />
                         )}
                       </li>
@@ -534,11 +550,14 @@ function App() {
           {/* 타임라인 */}
 
           {/* 프로젝트 */}
-          <section className="relative w-full border-t border-dashed border-gray-200 py-20">
-            <h2 className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rotate-270 text-3xl font-bold text-gray-200">
-              PROJECTS
-            </h2>
+          <section
+            id="work-projects"
+            className="relative w-full border-t border-dashed border-gray-200 py-20"
+          >
             <div className="mx-auto flex max-w-240 flex-col gap-4">
+              <h2 className="mb-4 text-2xl font-bold tracking-tight">
+                회사 프로젝트
+              </h2>
               <ul
                 aria-label="프로젝트 기술별 사용 건수"
                 className="mb-4 flex list-none flex-wrap gap-2 p-0 text-sm"
@@ -546,7 +565,7 @@ function App() {
                 {technologies.map(({ name, count }) => (
                   <li
                     key={name}
-                    className={`rounded-full px-3 py-1 ${technologyColors[name] ?? 'bg-gray-100 text-gray-700'}`}
+                    className={`technology-badge rounded-full px-3 py-1 ${technologyColors[name] ?? 'bg-gray-100 text-gray-700'}`}
                   >
                     {name} ({count}건)
                   </li>
@@ -560,7 +579,7 @@ function App() {
                   <div
                     className="flex w-full max-w-50 items-center justify-center px-5"
                     style={{
-                      background: project.pointColor || 'var(--color-gray-50)',
+                      background: project.pointColor || 'var(--color-blue-50)',
                     }}
                   >
                     {project.thumbnail && (
@@ -572,7 +591,7 @@ function App() {
                       />
                     )}
                   </div>
-                  <div className="px-4 py-2">
+                  <div className="border-l border-gray-200 px-4 py-2">
                     <div className="mt-1 text-[11px] text-gray-500">
                       <span className="text-xs text-gray-500">
                         {project.summary}
@@ -590,7 +609,7 @@ function App() {
                       {project.technologies.map((technology) => (
                         <li
                           key={technology}
-                          className={`rounded-full px-1.5 py-0.5 ${technologyColors[technology] ?? 'bg-gray-100 text-gray-700'}`}
+                          className={`technology-badge rounded-full px-1.5 py-0.5 ${technologyColors[technology] ?? 'bg-gray-100 text-gray-700'}`}
                         >
                           {technology}
                         </li>
@@ -615,9 +634,12 @@ function App() {
           {/* 프로젝트 */}
 
           {/* 개인 프로젝트 */}
-          <section className="relative w-full border-t border-dashed border-gray-200 py-20">
-            <h2 className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rotate-270 text-3xl font-bold text-gray-200">
-              PERSONAL
+          <section
+            id="side-projects"
+            className="relative w-full border-t border-dashed border-gray-200 py-20"
+          >
+            <h2 className="mx-auto mb-8 max-w-240 text-2xl font-bold tracking-tight">
+              개인 프로젝트
             </h2>
             <div className="mx-auto grid max-w-240 grid-cols-[repeat(auto-fit,minmax(180px,1fr))] flex-col gap-4">
               {sideProjects.map((project) => (
@@ -658,7 +680,7 @@ function App() {
                       {project.technologies.map((technology) => (
                         <li
                           key={technology}
-                          className={`rounded-full px-1.5 py-0.5 ${technologyColors[technology] ?? 'bg-gray-100 text-gray-700'}`}
+                          className={`technology-badge rounded-full px-1.5 py-0.5 ${technologyColors[technology] ?? 'bg-gray-100 text-gray-700'}`}
                         >
                           {technology}
                         </li>
@@ -678,33 +700,35 @@ function App() {
             </div>
           </section>
           {/* 개인 프로젝트 */}
-
-          {/* 연락 */}
-          <section className="relative w-full border-t border-dashed border-gray-200 py-20">
-            <h2 className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rotate-270 text-3xl font-bold text-gray-200">
-              CONTACT
-            </h2>
-            <div className="mx-auto flex flex-col items-center">
-              <h3 className="text-lg font-semibold">함께 이야기 나눠요.</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                프로젝트나 협업에 대해 편하게 연락해 주세요.
-              </p>
-              <address className="mt-5 not-italic">
-                <a
-                  href="mailto:zabefofoon@gmail.com"
-                  className="inline-flex items-center gap-2 text-blue-600 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
-                >
-                  zabefofoon@gmail.com <span aria-hidden="true">↗</span>
-                </a>
-              </address>
-            </div>
-          </section>
-          {/* 연락 */}
         </div>
+        {/* 흰 컨텐츠 */}
+
+        {/* 연락 */}
+        <section
+          id="contact"
+          className="contact-reveal relative bg-linear-to-t from-blue-50 to-blue-200 px-5 py-28 text-gray-900 sm:py-50"
+        >
+          <Suspense fallback={null}>
+            <GearBackground variant="contact" />
+          </Suspense>
+          <div className="relative z-10 mx-auto flex flex-col items-center text-center">
+            <h2 className="text-lg font-semibold">함께 이야기 나눠요.</h2>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">
+              프로젝트나 협업에 대해 편하게 연락해 주세요.
+            </p>
+            <address className="mt-5 not-italic">
+              <a
+                href="mailto:zabefofoon@gmail.com"
+                className="inline-flex items-center gap-2 text-blue-600 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+              >
+                zabefofoon@gmail.com <span aria-hidden="true">↗</span>
+              </a>
+            </address>
+          </div>
+        </section>
+        {/* 연락 */}
       </main>
-      <footer className="bg-white px-10 pb-8 text-center text-sm text-gray-500">
-        © 정상우
-      </footer>
+      <SectionNav />
     </>
   )
 }
