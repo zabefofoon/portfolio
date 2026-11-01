@@ -71,10 +71,13 @@ function App() {
     },
   ]
 
-  const aboutContent = `이커머스부터 크리에이터 플랫폼, 쇼핑 리워드와 커뮤니티까지 다양한 서비스를 구축·운영·출시해 왔습니다. 화면과 기능을 구현하는 데서 나아가, 서비스가 성장하면서 생기는 구조·성능·사용성 문제를 해결하는 데 관심이 많습니다.
+  const aboutContent = `<b>서비스 구축부터 운영까지, 성장에 맞춘 문제 해결</b>
+이커머스부터 크리에이터 플랫폼, 쇼핑 리워드와 커뮤니티까지 다양한 서비스를 구축·운영·출시해 왔습니다. 화면과 기능을 구현하는 데서 나아가, 서비스가 성장하면서 생기는 구조·성능·사용성 문제를 해결하는 데 관심이 많습니다.
 
-기획이나 디자인에서 개선할 부분을 발견하면 간단한 화면을 만들어 먼저 제안하는 편입니다. 서로 다른 관점을 이해하고 의견을 나누며, 더 나은 방향을 함께 찾아가는 과정을 중요하게 생각합니다.
+<b>먼저 제안하고 소통하며 찾는 더 나은 방향</b>
+기획이나 디자인에서 개선할 부분을 발견하면, 필요에 따라 Figma로 시안을 그리거나 화면을 직접 만들어 공유하고 먼저 제안합니다. 서로 다른 관점을 이해하고 의견을 나누며, 더 나은 방향을 함께 찾아가는 과정을 중요하게 생각합니다.
 
+<b>AI를 활용한 학습과 개발 영역의 확장</b>
 개인에게 주어진 업무를 완수하는 데서 나아가, 팀이 더 원활하게 일할 수 있는 방법도 함께 고민합니다. Claude와 Codex를 활용해 새로운 기술을 익히고, 프론트엔드를 중심으로 백엔드와 앱 등 필요한 영역까지 경험을 넓혀가고 있습니다.`
 
   const technologyColors: Record<string, string> = {
@@ -98,111 +101,57 @@ function App() {
 
   const projects: Project[] = [
     {
-      name: 'G1 Front',
-      url: '',
-      thumbnail: '/resources/images/g1_logo.webp',
-      pointColor: '#2C3787',
-      summary: '보일러 플레이트',
-      period: '2019.12 ~ 2023.11',
-      features: [
-        '이커머스 프로젝트의 코드 베이스이자 솔루션 샘플 페이지로 활용',
-        '홈페이지·상품상세·검색·기획전·룩북·AS안내·브랜드스토리·마이페이지 내 적립금·예치금·관심상품·재입고알림·배송지목록 조회',
-        'i18n 적용, 구글 스프레드시트로 언어 동기화',
-        'Jest를 사용한 컴포넌트 단위 테스트',
-        'Spring Boot 으로 프론트 서버 구성 및 Redis로 Api 캐싱',
-        '@g1cloud/vue-ui 사내 공통 라이브러리 참여',
-      ],
-      technologies: ['Vue2', 'Vue3', 'Spring Boot', 'Scss'],
-    },
-    {
-      name: 'ZEROGRAM',
-      url: 'https://www.zerogram.co.kr/',
-      thumbnail: '/resources/images/zerogram_logo.webp',
+      name: 'Asked',
+      url: 'https://asked.kr/',
+      thumbnail: '/resources/images/asked_logo.webp',
       thumbnail_width: '80px',
-      period: '2021.04 ~ 2023.11',
-      summary: '이커머스',
+      period: '2026.05 -',
+      summary: '익명 소통 커뮤니티',
       features: [
-        '홈페이지·상품상세·검색·기획전·룩북·AS안내·브랜드스토리·마이페이지 내 적립금·예치금·관심상품·재입고알림·배송지목록 조회',
-        'i18n 적용, 구글 스프레드시트로 언어 동기화',
-        'Spring Boot 으로 프론트 서버 구성 및 Redis로 Api 캐싱',
+        '프로젝트 초기 설정부터 운영 배포까지 담당',
+        'Nuxt 2 기반 서비스를 Nuxt 4로 재구축하고, 로드 밸런싱을 활용해 트래픽을 점진적으로 전환',
+        'AWS EC2에서 Cloudflare Pages로 배포 환경을 이전해 배포 과정을 개선하고 운영비를 기존의 10분의 1로 절감',
+        '가상 스크롤을 적용해 모바일 화면 처리와 발열 문제 개선',
+        '웹소켓 기반 채팅 화면을 개발하고 웹뷰 브리지를 통해 앱과 연동',
+        'GitHub Actions를 활용한 자동 버전 관리와 사용자 행동 이벤트 로깅 구성',
+        'i18n을 적용해 다국어를 지원하고, Google 스프레드시트와 메시지 키를 동기화',
+        '디자인 토큰을 적용 및 다크 모드 지원',
+        'Go(Fiber) 기반 API 서버에서 미디어 업로드 및 게시글 작성 API 구현',
       ],
-      technologies: ['Vue2', 'Spring Boot', 'Scss'],
+      technologies: ['Nuxt4', 'Tailwindcss', 'Go'],
     },
     {
-      name: '페이지 빌더',
-      url: 'https://www.youtube.com/watch?v=KrTqciPRges',
-      thumbnail: '/resources/images/g1_logo.webp',
-      pointColor: '#2C3787',
-      period: '2021.11 ~ 2023.11',
-      summary: '로우코드 웹 에디터',
-      features: [
-        '이벤트 페이지 대응을 위한 웹 에디터',
-        '@g1cloud/page-builder-viewer 제작',
-        '@g1cloud/page-builder-vue-renderer 제작',
-      ],
-      technologies: ['Vue2', 'Spring Boot', 'Scss'],
-    },
-    {
-      name: 'ByLynn',
-      url: 'http://bylynn.shop/',
-      thumbnail: '/resources/images/bylynn_logo.webp',
-      period: '2023.01 ~ 2023.11',
-      summary: '이커머스',
-      features: [
-        '홈페이지·상품목록·상품상세·검색·기획전·룩북·어바웃·관심상품·재입고알림 페이지 담당',
-        'Spring Boot 으로 프론트 서버 구성 및 Redis로 Api 캐싱',
-        'PurgeCSS를 적용해 사용하지 않는 CSS를 제거하고 스타일 파일 크기 최적화',
-        'SpringBoot에서 컨트롤러에서 url에 맵핑된 각각의 html을 응답하던 기존의 MPA방식에서, 하나의 컨트롤러와 하나의 html을 응답하는 SPA 방식으로 전환 경험',
-        '라이브러리 교체로, 초기 로드속도를 3초 이상에서 1초 이내로 개선',
-        '콘텐츠 로딩 중 스켈레톤 UI를 적용해 레이아웃 이동을 줄이고 CLS 0.001 달성',
-        'Vitest를 사용하여, 컴포넌트 단위테스트 경험',
-        'Project Leader',
-      ],
-      technologies: ['Vue3', 'Spring Boot', 'Scss'],
-    },
-    {
-      name: 'T Deal 커머스',
-      url: 'https://tdeal.kr/',
-      thumbnail: '/resources/images/tdeal_logo.webp',
+      name: '사운드아카이브',
+      url: 'https://sound-archive.cloud/',
+      thumbnail: '/resources/images/sound_archive.webp',
       thumbnail_width: '80px',
-      period: '2023.11 - 2024.07',
-      summary: '이커머스',
+      period: '2026.05 ~ 2026.08',
+      summary: '음원 서비스',
       features: [
-        '숙박 상품의 날짜·인원 선택부터 객실 검색, 가예약, 주문·취소까지 프론트엔드 화면과 API를 연동',
-        '주문서의 결제수단 UI를 개선하고 휴대폰 결제 및 환불계좌 검증 기능을 개발',
-        '상품 옵션 상세보기 팝업을 구현하고 구매 제한, 품절, 뒤로가기 등 예외 상황을 처리',
-        '래플 이벤트와 프로모션 화면을 개발하고 GA 이벤트 태깅을 적용',
-        '관리자에서 파트너 페널티 제외 관리 화면과 목록·엑셀 다운로드 기능을 개발',
-        '버그 리포팅을 위한 Sentry 연동',
-        'Hackle 연동으로 기능 A/B테스트',
+        '프로젝트 초기 설정부터 운영 배포까지 담당',
+        '음원 재생 UI와 채널 인증·구독 결제 기능 개발',
+        'Google OAuth를 연동하고 사용자 인증 흐름 구현',
+        'GitHub Actions를 활용한 자동 버전 관리와 사용자 행동 이벤트 로깅 구성',
+        'i18n을 적용해 다국어를 지원하고, Google 스프레드시트와 메시지 키를 동기화',
       ],
-      technologies: ['Vue2', 'Scss'],
+      technologies: ['Nuxt4', 'Tailwindcss'],
     },
     {
-      name: 'Nboard 광고 리포트 관리',
-      url: '',
-      thumbnail: '/resources/images/incross_logo.webp',
-      period: '2023.11 - 2024.07',
-      summary: '광고주 어드민',
+      name: '고고고',
+      url: 'http://getstar.kr/',
+      thumbnail: '/resources/images/gogogo_logo.webp',
+      thumbnail_width: '80px',
+      period: '2025.06 ~ 2026.09',
+      summary: '리워드 적립 서비스',
       features: [
-        'Apache Superset 대시보드와 게스트 토큰 발급 API를 연동해 UA 캠페인 데이터 조회 화면을 구현',
-        'UA 캠페인 XLSX 파일 업로드와 유형별 파일 확장자 검증 기능을 개발',
-        '브랜딩 캠페인 매체의 검색·등록·삭제 및 중복 확인 기능을 구현',
-        '리포트 검증에 사용하는 매체 목록을 API 기반으로 전환해 화면에서 관리할 수 있도록 개선',
+        '프로젝트 초기 설정부터 운영 배포까지 담당',
+        'Flutter 웹뷰 브리지를 통해 딥링크, 외부 링크, 공유받은 상품 URL과 앱 내 화면 이동 연동',
+        '소셜 로그인과 토큰 갱신, 탭 간 인증 정보 동기화를 구현해 웹·앱의 로그인 유지',
+        '쿠폰 목록에 가상 스크롤과 캐시·스크롤 복원을 적용해 목록 탐색 경험 개선',
+        '스탬프 적립, 룰렛, 쿠폰함과 핫딜 커뮤니티 개발',
+        'GitHub Actions 기반 자동 버전 관리와 사용자 행동 이벤트 로깅 구성',
       ],
-      technologies: ['Vue2', 'Scss', 'Apache Superset', 'MySQL'],
-    },
-    {
-      name: 'SK그룹 광고 집행 관리 PoC',
-      url: '',
-      thumbnail: '/resources/images/incross_logo.webp',
-      period: '2024.06 - 2024.06',
-      summary: '광고주 어드민',
-      features: [
-        '광고 집행 정보의 목록·상세·등록·수정·삭제 화면과 API 연동을 구현.',
-        '광고주, 매체, 게재면, 광고비, 게재일 등을 입력하는 폼에 필수값 검증과 소재 파일 업로드를 적용.',
-      ],
-      technologies: ['Vue3', 'Scss'],
+      technologies: ['Nuxt4', 'SCSS'],
     },
     {
       name: '짤스튜디오',
@@ -211,13 +160,13 @@ function App() {
       period: '2024.08 ~',
       summary: '수익창출 플랫폼',
       features: [
-        'YouTube·다음 채널별 실적 대시보드와 빠른 정산·출금 화면을 개발',
-        'AI 보이스 기반 TTS 편집 도구에서 스크립트 편집, 보이스 설정, 프로젝트 관리 및 API 연동 기능을 개발',
-        '카카오 숏폼 크리에이터의 인증, 채널 조회 및 신청 흐름을 연동',
-        '크리에이터 광고 캠페인 참여 기능 및 프로모션 랜딩 페이지 페이지 개발',
-        '대형 라이브러리 청크 분리, SSR 환경의 hydration 불일치 및 초기 렌더링 오류를 개선',
-        'EC2 배포 환경에서, Cloudflare Pages로 운영 배포 환경 개선 및 비용 최적화',
-        'Rust Axum을 사용한 API 개발 참여',
+        'AI 보이스 기반 TTS 편집 도구에서 스크립트 편집, 보이스 설정, 프로젝트 관리 화면과 API 연동 개발',
+        '대형 라이브러리 청크 분리와 SSR 환경의 hydration 불일치·초기 렌더링 오류 개선',
+        'EC2에서 Cloudflare Pages로 배포 환경을 이전해 운영 과정을 개선하고 비용 최적화',
+        'YouTube·다음 채널별 실적 대시보드와 빠른 정산·출금 화면 개발',
+        '카카오 숏폼 크리에이터 인증, 채널 조회 및 신청 흐름 연동',
+        '크리에이터 광고 캠페인 참여 기능과 프로모션 랜딩 페이지 개발',
+        'Rust(Axum) 기반 API 서버 재구축 참여',
       ],
       technologies: ['Nuxt3', 'Nuxt4', 'Rust'],
     },
@@ -228,59 +177,119 @@ function App() {
       period: '2024.08 ~ 2025.10',
       summary: '수익창출 플랫폼',
       features: [
-        '프로젝트 셋팅부터 운영 배포까지 담당',
-        '짤스튜디오 API 연동으로, 인증·정산·채널인증·채널관리·멤버관리 기능 개발',
-        '디자인 토큰 적용',
+        '프로젝트 초기 설정부터 운영 배포까지 담당',
+        '짤스튜디오 API를 연동해 로그인·정산·채널 인증 및 채널·멤버 관리 기능 개발',
+        '디자인 토큰을 적용해 화면 스타일 구성',
       ],
       technologies: ['Nuxt3', 'Tailwindcss'],
     },
+
     {
-      name: '고고고',
-      url: 'http://getstar.kr/',
-      thumbnail: '/resources/images/gogogo_logo.webp',
-      thumbnail_width: '80px',
-      period: '2025.06 ~ 2026.09',
-      summary: '리워드 적립 서비스',
+      name: 'SK그룹 광고 집행 관리 PoC',
+      url: '',
+      thumbnail: '/resources/images/incross_logo.webp',
+      period: '2024.06 - 2024.06',
+      summary: '광고주 어드민',
       features: [
-        '프로젝트 셋팅부터 운영 배포까지 담당',
-        'Flutter 웹뷰 브리지를 통해 딥링크, 외부 링크, 공유받은 상품 URL 및 앱 내 화면 이동을 연동',
-        '소셜 로그인과 토큰 갱신, 탭 간 인증 정보 동기화 등 웹·앱의 로그인 유지 개발',
-        '스탬프 적립, 룰렛, 쿠폰함과 핫딜 커뮤니티 개발',
-        '쿠폰 목록에 가상 스크롤과 캐시·스크롤 복원 적용',
-        'GitHub Actions 기반 자동 버전 관리와 사용자 행동 이벤트 로깅 구성',
+        '광고 집행 정보의 목록·상세·등록·수정·삭제 화면을 개발하고 API 연동',
+        '광고주, 매체, 게재면, 광고비, 게재일 입력 폼에 필수값 검증과 광고 소재 파일 업로드 적용',
       ],
-      technologies: ['Nuxt4', 'SCSS'],
+      technologies: ['Vue3', 'Scss'],
     },
     {
-      name: '사운드아카이브',
-      url: 'https://sound-archive.cloud/',
-      thumbnail: '/resources/images/sound_archive.webp',
-      thumbnail_width: '80px',
-      period: '2026.05 ~ 2026.08',
-      summary: '음원 서비스',
+      name: 'Nboard 광고 리포트 관리',
+      url: '',
+      thumbnail: '/resources/images/incross_logo.webp',
+      period: '2023.11 - 2024.07',
+      summary: '광고주 어드민',
       features: [
-        '프로젝트 셋팅부터 운영 배포까지 담당',
-        '구글 OAuth 연동 및 인증 흐름 구현',
-        '음원 재생 UI·채널인증·구독결제 개발',
-        'GitHub Actions 기반 자동 버전 관리와 사용자 행동 이벤트 로깅 구성',
+        'Apache Superset 대시보드와 게스트 토큰 발급 API를 연동해 UA 캠페인 데이터 조회 화면 구현',
+        '리포트 검증에 사용하는 매체 목록을 API 기반으로 전환해 화면에서 관리할 수 있도록 개선',
+        'UA 캠페인 XLSX 파일 업로드와 유형별 파일 확장자 검증 기능 개발',
+        '브랜딩 캠페인 매체의 검색·등록·삭제 및 중복 확인 기능 구현',
       ],
-      technologies: ['Nuxt4', 'Tailwindcss'],
+      technologies: ['Vue2', 'Scss', 'Apache Superset', 'MySQL'],
     },
     {
-      name: 'Asked',
-      url: 'https://asked.kr/',
-      thumbnail: '/resources/images/asked_logo.webp',
+      name: 'T Deal 커머스',
+      url: 'https://tdeal.kr/',
+      thumbnail: '/resources/images/tdeal_logo.webp',
       thumbnail_width: '80px',
-      period: '2026.05 -',
-      summary: '익명 소통 커뮤니티',
+      period: '2023.11 - 2024.07',
+      summary: '이커머스',
       features: [
-        '기존 Nuxt2 프로젝트를 Nuxt4로 새로 만들고, 로드 밸런싱으로 트래픽 점진적 배포',
-        'EC2로의 배포를 Cloudflare Pages로 옮기고, 배포과정 및 운영비용 최적화(10분의 1)',
-        '웹소켓을 사용한 채팅서비스 화면 개발',
-        '가상스크롤을 적용으로, 프론트 기능 개선 및 핸드폰 발열 개선',
-        '브릿지 통신으로 앱과 상호작용',
+        '숙박 상품의 날짜·인원 선택부터 객실 검색, 가예약, 주문·취소까지 화면과 API 연동',
+        '주문서의 결제수단 UI를 개선하고 휴대폰 결제 및 환불계좌 검증 기능 개발',
+        '상품 옵션 상세보기 팝업을 구현하고 구매 제한·품절·뒤로가기 등 예외 상황 처리',
+        '래플 이벤트와 프로모션 화면을 개발하고 Google Analytics 이벤트 태깅 적용',
+        '관리자용 파트너 페널티 제외 관리 화면과 목록·엑셀 다운로드 기능 개발',
+        'Sentry를 연동해 오류를 수집하고, Hackle을 활용한 기능 A/B 테스트 적용',
       ],
-      technologies: ['Nuxt4', 'Tailwindcss', 'Go'],
+      technologies: ['Vue2', 'Scss'],
+    },
+    {
+      name: 'ByLynn',
+      url: 'http://bylynn.shop/',
+      thumbnail: '/resources/images/bylynn_logo.webp',
+      period: '2023.01 ~ 2023.11',
+      summary: '이커머스',
+      features: [
+        '프로젝트 리더로서 팀원에게 작업을 분배하고, 기획팀·백엔드팀과 협업 업무 조율',
+        '라이브러리 교체로 초기 로딩 속도를 3초 이상에서 1초 이내로 개선',
+        '스켈레톤 UI를 적용해 콘텐츠 로딩 중 레이아웃 이동을 줄이고 CLS 0.001 달성',
+        'Spring Boot의 URL별 HTML 응답 방식을 단일 HTML을 제공하는 SPA 방식으로 전환',
+        'PurgeCSS로 사용하지 않는 CSS를 제거해 스타일 파일 크기 최적화',
+        'Spring Boot로 프론트 서버를 구성하고 Redis로 API 응답 캐싱',
+        '홈페이지·상품 목록·상세·검색·기획전·룩북·어바웃·관심상품·재입고 알림 등 주요 화면 개발',
+        'Vitest를 활용한 컴포넌트 단위 테스트 작성',
+      ],
+      technologies: ['Vue3', 'Spring Boot', 'Scss'],
+    },
+    {
+      name: '페이지 빌더',
+      url: 'https://www.youtube.com/watch?v=KrTqciPRges',
+      thumbnail: '/resources/images/g1_logo.webp',
+      pointColor: '#2C3787',
+      period: '2021.11 ~ 2023.11',
+      summary: '로우코드 웹 에디터',
+      features: [
+        '이벤트 페이지 제작을 위한 로우코드 웹 에디터를 처음부터 끝까지 개발',
+        '페이지 빌더 콘텐츠를 표시하는 @g1cloud/page-builder-viewer 제작',
+        'Vue 환경에서 콘텐츠를 렌더링하는 @g1cloud/page-builder-vue-renderer 제작',
+      ],
+      technologies: ['Vue2', 'Spring Boot', 'Scss'],
+    },
+    {
+      name: 'ZEROGRAM',
+      url: 'https://www.zerogram.co.kr/',
+      thumbnail: '/resources/images/zerogram_logo.webp',
+      thumbnail_width: '80px',
+      period: '2021.04 ~ 2023.11',
+      summary: '이커머스',
+      features: [
+        '홈페이지·상품 상세·검색·기획전·룩북·AS 안내·브랜드 스토리 등 주요 쇼핑몰 화면 개발',
+        '마이페이지의 적립금·예치금·관심상품·재입고 알림·배송지 목록 조회 기능 개발',
+        'i18n을 적용해 다국어를 지원하고 Google 스프레드시트와 언어 데이터 동기화',
+        'Spring Boot로 프론트 서버를 구성하고 Redis로 API 응답 캐싱',
+      ],
+      technologies: ['Vue2', 'Spring Boot', 'Scss'],
+    },
+    {
+      name: 'G1 Front',
+      url: '',
+      thumbnail: '/resources/images/g1_logo.webp',
+      pointColor: '#2C3787',
+      summary: '보일러 플레이트',
+      period: '2019.12 ~ 2023.11',
+      features: [
+        '이커머스 프로젝트의 코드 베이스이자 솔루션 샘플 페이지로 활용되는 G1 Front 개발',
+        '홈페이지·상품 상세·검색·기획전·룩북·마이페이지 등 공통 쇼핑몰 화면 및 기능 개발',
+        '사내 공통 UI 라이브러리 @g1cloud/vue-ui 개발 참여',
+        'i18n을 적용해 다국어를 지원하고 Google 스프레드시트와 언어 데이터 동기화',
+        'Spring Boot로 프론트 서버를 구성하고 Redis로 API 응답 캐싱',
+        'Jest를 활용한 컴포넌트 단위 테스트 작성',
+      ],
+      technologies: ['Vue2', 'Vue3', 'Spring Boot', 'Scss'],
     },
   ]
 
@@ -434,9 +443,6 @@ function App() {
                 #프론트엔드 #7년차
               </p>
               <div className="mt-5 w-full">
-                <h3 className="text-lg font-semibold">
-                  프로젝트 세팅부터, 배포 및 출시까지
-                </h3>
                 <div
                   className="mt-3 max-w-[65ch] text-left text-[15px] leading-[1.8] text-pretty break-keep whitespace-pre-wrap text-slate-800"
                   dangerouslySetInnerHTML={{ __html: aboutContent }}
@@ -600,9 +606,14 @@ function App() {
                     </div>
                     <h3>{project.name}</h3>
 
-                    <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-pretty break-keep text-gray-800">
+                    <ul className="mt-2 list-none space-y-1 p-0 text-sm text-pretty break-keep text-gray-800">
                       {project.features.map((feature) => (
-                        <li key={feature}>{feature}</li>
+                        <li
+                          key={feature}
+                          className="flex gap-1 before:content-['·']"
+                        >
+                          {feature}
+                        </li>
                       ))}
                     </ul>
                     <ul className="mt-4 flex list-none flex-wrap gap-1.5 p-0 text-xs">
@@ -671,9 +682,14 @@ function App() {
                     </div>
                     <h3>{project.name}</h3>
 
-                    <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-pretty break-keep text-gray-800">
+                    <ul className="mt-2 list-none space-y-1 p-0 text-sm text-pretty break-keep text-gray-800">
                       {project.features.map((feature) => (
-                        <li key={feature}>{feature}</li>
+                        <li
+                          key={feature}
+                          className="flex gap-1 before:content-['·']"
+                        >
+                          {feature}
+                        </li>
                       ))}
                     </ul>
                     <ul className="mt-4 flex list-none flex-wrap gap-1.5 p-0 text-xs">
