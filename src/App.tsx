@@ -358,7 +358,13 @@ function App() {
         '플레이스토어 출시',
         '앱스토어 출시',
       ],
-      technologies: ['SvelteKit', 'Tailwindcss', 'Supabase', 'Flutter', 'NestJS'],
+      technologies: [
+        'SvelteKit',
+        'Tailwindcss',
+        'Supabase',
+        'Flutter',
+        'NestJS',
+      ],
     },
     {
       name: '다꾸다꾸',
@@ -382,13 +388,28 @@ function App() {
     },
   ]
 
-  const technologyCounts = new Map<string, { name: string; company: number; personal: number }>()
-  for (const [group, projectList] of [['company', projects], ['personal', sideProjects]] as const) {
+  const technologyCounts = new Map<
+    string,
+    { name: string; company: number; personal: number }
+  >()
+  for (const [group, projectList] of [
+    ['company', projects],
+    ['personal', sideProjects],
+  ] as const) {
     for (const project of projectList) {
       const projectTechnologies = new Map<string, string>()
       for (const item of project.technologies) {
         const key = item.toLowerCase()
-        if (['apache superset', 'phaser', 'android', 'swift', 'google api'].includes(key)) continue
+        if (
+          [
+            'apache superset',
+            'phaser',
+            'android',
+            'swift',
+            'google api',
+          ].includes(key)
+        )
+          continue
         const name = /^vue[23]$/.test(key)
           ? 'Vue'
           : /^nuxt[34](\/4)?$/.test(key)
@@ -397,14 +418,20 @@ function App() {
         projectTechnologies.set(name.toLowerCase(), name)
       }
       for (const [key, name] of projectTechnologies) {
-        const existing = technologyCounts.get(key) ?? { name, company: 0, personal: 0 }
+        const existing = technologyCounts.get(key) ?? {
+          name,
+          company: 0,
+          personal: 0,
+        }
         existing[group] += 1
         technologyCounts.set(key, existing)
       }
     }
   }
   const technologies = [...technologyCounts.values()].sort(
-    (a, b) => (b.company + b.personal) - (a.company + a.personal) || a.name.localeCompare(b.name),
+    (a, b) =>
+      b.company + b.personal - (a.company + a.personal) ||
+      a.name.localeCompare(b.name),
   )
 
   return (
@@ -419,46 +446,46 @@ function App() {
           <Suspense fallback={null}>
             <GearBackground />
           </Suspense>
-          <div className="relative z-10 flex w-full max-w-200 flex-col items-start gap-5 py-28 sm:flex-row sm:py-40 lg:py-44">
-            <figure className="flex shrink-0 flex-col items-center gap-2">
+          <div className="relative z-10 grid w-full max-w-200 grid-cols-[auto_1fr] items-start gap-x-5 gap-y-5 py-20 sm:py-40 lg:py-44">
+            <figure className="flex flex-col items-center gap-2 sm:row-span-2">
               <img
-                className="border-border aspect-square size-32 rounded-full border border-gray-200"
+                className="border-border aspect-square size-20 rounded-full border border-gray-200 sm:size-32"
                 src="/resources/images/profile.webp"
                 alt="내 프로필"
               />
-              <figcaption className="text-sm text-gray-600">
+              <figcaption className="text-xs text-gray-600 sm:text-sm">
                 1995.05.03, INFJ
               </figcaption>
             </figure>
-            <div className="w-full">
-              <h1 className="text-4xl leading-[140%] font-bold tracking-tight whitespace-pre-wrap">
+            <div className="self-center sm:self-start">
+              <h1 className="text-3xl leading-[140%] font-bold tracking-tight whitespace-pre-wrap sm:text-4xl">
                 {`정상우`}
               </h1>
-              <p className="mt-1 text-sm leading-[140%] font-semibold whitespace-pre-wrap text-blue-500">
+              <p className="mt-1 text-xs leading-[140%] font-semibold whitespace-pre-wrap text-blue-500 sm:text-sm">
                 #프론트엔드 #7년차
               </p>
-              <div className="mt-5 w-full">
-                <div
-                  className="mt-3 max-w-[65ch] text-left text-[15px] leading-[1.8] text-pretty break-keep whitespace-pre-wrap text-slate-800"
-                  dangerouslySetInnerHTML={{ __html: aboutContent }}
-                ></div>
-              </div>
+            </div>
+            <div className="col-span-2 w-full sm:col-span-1 sm:col-start-2">
+              <div
+                className="max-w-[65ch] text-left text-[15px] leading-[1.8] text-pretty break-keep whitespace-pre-wrap text-slate-800"
+                dangerouslySetInnerHTML={{ __html: aboutContent }}
+              ></div>
             </div>
           </div>
         </section>
         {/* 상단 영역 */}
 
         {/* 흰 컨텐츠 */}
-        <div className="relative z-1 mx-auto flex w-[calc(100%-240px)] flex-col items-center rounded-4xl bg-blue-50 p-10 shadow-2xl">
+        <div className="relative z-1 mx-auto flex w-[calc(100%-32px)] flex-col items-center rounded-3xl bg-blue-50 p-4 shadow-2xl sm:w-[calc(100%-80px)] sm:p-6 lg:w-[calc(100%-240px)] lg:rounded-4xl lg:p-10">
           <ScrollGears />
           {/* 타임라인 */}
-          <section id="experience" className="relative w-full py-20">
+          <section id="experience" className="relative w-full py-12 sm:py-20">
             <h2 className="mx-auto mb-8 max-w-240 text-2xl font-bold tracking-tight">
               이력
             </h2>
-            <div className="flex items-start justify-center">
+            <div className="flex flex-col items-start justify-center sm:flex-row">
               <div className="flex items-center justify-center">
-                <div className="relative m-5 flex flex-col gap-8">
+                <div className="relative m-2 flex flex-col gap-8 sm:m-5">
                   <div className="absolute left-0.75 h-full border-l-2 border-dotted border-gray-500"></div>
                   <ol className="flex list-none flex-col gap-8 p-0">
                     {education.map((timeline, index) => (
@@ -467,7 +494,7 @@ function App() {
                         className="relative flex items-start gap-2"
                       >
                         {index === 0 && (
-                          <div className="absolute left-0.5 h-3 w-1 bg-white dark:bg-black"></div>
+                          <div className="absolute left-0.5 h-3 w-1 bg-blue-50 dark:bg-black"></div>
                         )}
                         <div className="relative size-2 translate-y-2 rounded-full bg-blue-500"></div>
                         <div>
@@ -499,7 +526,7 @@ function App() {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <div className="relative m-5 flex flex-col gap-8">
+                <div className="relative m-2 flex flex-col gap-8 sm:m-5">
                   <div className="absolute left-0.75 h-full border-l-2 border-dotted border-gray-500"></div>
                   <ol className="flex list-none flex-col gap-8 p-0">
                     {timelines.map((timeline, index) => (
@@ -508,7 +535,7 @@ function App() {
                         className="relative flex items-start gap-2"
                       >
                         {index === 0 && (
-                          <div className="absolute left-0.5 h-3 w-1 bg-white dark:bg-black"></div>
+                          <div className="absolute left-0.5 h-3 w-1 bg-blue-50 dark:bg-black"></div>
                         )}
                         <div className="relative size-2 translate-y-2 rounded-full bg-blue-500"></div>
                         <div>
@@ -553,7 +580,7 @@ function App() {
           {/* 프로젝트 */}
           <section
             id="work-projects"
-            className="relative w-full border-t border-dashed border-gray-200 py-20"
+            className="relative w-full border-t border-dashed border-gray-200 py-12 sm:py-20"
           >
             <div className="mx-auto flex max-w-240 flex-col gap-4">
               <h2 className="mb-4 text-2xl font-bold tracking-tight">
@@ -565,10 +592,10 @@ function App() {
               {projects.map((project) => (
                 <article
                   key={project.name}
-                  className="relative flex overflow-hidden rounded-2xl border border-gray-200"
+                  className="relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 sm:flex-row"
                 >
                   <div
-                    className="flex w-full max-w-50 items-center justify-center px-5"
+                    className="flex w-full items-center justify-center px-5 py-5 sm:max-w-50 sm:py-0"
                     style={{
                       background: project.pointColor || 'var(--color-blue-50)',
                     }}
@@ -577,19 +604,21 @@ function App() {
                       <img
                         src={project.thumbnail}
                         alt={project.name}
-                        className="h-auto"
+                        className="h-auto max-h-16 max-w-40 object-contain sm:max-h-none"
                         style={{ width: project.thumbnail_width ?? '100%' }}
                       />
                     )}
                   </div>
-                  <div className="border-l border-gray-200 px-4 py-2">
-                    <div className="mt-1 text-[11px] text-gray-500">
+                  <div className="border-t border-gray-200 px-4 py-2 sm:border-t-0 sm:border-l">
+                    <div className="mt-1 text-xs text-gray-500 sm:text-[11px]">
                       <span className="text-xs text-gray-500">
                         {project.summary}
                       </span>
                       ·<span>{project.period}</span>
                     </div>
-                    <h3>{project.name}</h3>
+                    <h3 className="font-semibold sm:font-normal">
+                      {project.name}
+                    </h3>
 
                     <ul className="mt-2 list-none space-y-1 p-0 text-sm text-pretty break-keep text-gray-800">
                       {project.features.map((feature) => (
@@ -632,12 +661,12 @@ function App() {
           {/* 개인 프로젝트 */}
           <section
             id="side-projects"
-            className="relative w-full border-t border-dashed border-gray-200 py-20"
+            className="relative w-full border-t border-dashed border-gray-200 py-12 sm:py-20"
           >
             <h2 className="mx-auto mb-8 max-w-240 text-2xl font-bold tracking-tight">
               개인 프로젝트
             </h2>
-            <div className="mx-auto grid max-w-240 grid-cols-[repeat(auto-fit,minmax(180px,1fr))] flex-col gap-4">
+            <div className="mx-auto grid max-w-240 grid-cols-1 gap-4 sm:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
               {sideProjects.map((project) => (
                 <a
                   key={project.name}
@@ -648,7 +677,7 @@ function App() {
                   className="relative flex flex-col overflow-hidden rounded-2xl border border-gray-200"
                 >
                   <div
-                    className="flex aspect-square w-full items-center justify-center p-10"
+                    className="flex h-[104px] w-full items-center justify-center px-5 py-5 sm:aspect-square sm:h-auto sm:p-10"
                     style={{
                       background: project.pointColor || 'var(--color-gray-100)',
                     }}
@@ -656,16 +685,18 @@ function App() {
                     <img
                       src={project.thumbnail}
                       alt=""
-                      className="w-full object-contain"
+                      className="max-h-16 w-full max-w-40 object-contain sm:max-h-none sm:max-w-none"
                     />
                   </div>
                   <div className="px-4 py-2">
-                    <div className="mt-1 text-[11px] text-gray-500">
+                    <div className="mt-1 text-xs text-gray-500 sm:text-[11px]">
                       <span className="text-xs text-gray-500">
                         {project.summary}
                       </span>
                     </div>
-                    <h3>{project.name}</h3>
+                    <h3 className="font-semibold sm:font-normal">
+                      {project.name}
+                    </h3>
 
                     <ul className="mt-2 list-none space-y-1 p-0 text-sm text-pretty break-keep text-gray-800">
                       {project.features.map((feature) => (

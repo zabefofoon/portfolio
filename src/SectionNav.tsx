@@ -82,7 +82,7 @@ export default function SectionNav() {
       </nav>
       <a
         href="#top"
-        className={`fixed right-[max(24px,env(safe-area-inset-left))] bottom-[max(24px,env(safe-area-inset-bottom))] z-20 grid size-[52px] place-items-center rounded-full text-[#53657e] hover:bg-white/80 hover:text-blue-600 max-[480px]:bottom-[calc(max(24px,env(safe-area-inset-bottom))+64px)] max-[480px]:left-[max(12px,env(safe-area-inset-left))] ${glassStyle} ${focusStyle}`}
+        className={`fixed right-[max(24px,env(safe-area-inset-left))] bottom-[max(24px,env(safe-area-inset-bottom))] z-20 hidden size-[52px] place-items-center rounded-full text-[#53657e] hover:bg-white/80 hover:text-blue-600 sm:grid ${glassStyle} ${focusStyle}`}
         aria-label="페이지 맨 위로 이동"
       >
         <ArrowUp size={19} aria-hidden="true" />

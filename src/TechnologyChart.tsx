@@ -2,10 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { init, use as registerCharts } from 'echarts/core'
 import type { EChartsType } from 'echarts/core'
 import { BarChart } from 'echarts/charts'
-import { GridComponent, TooltipComponent } from 'echarts/components'
+import { GridComponent } from 'echarts/components'
 import { SVGRenderer } from 'echarts/renderers'
 
-registerCharts([BarChart, GridComponent, TooltipComponent, SVGRenderer])
+registerCharts([BarChart, GridComponent, SVGRenderer])
 
 type Technology = { name: string; company: number; personal: number }
 
@@ -43,22 +43,21 @@ export default function TechnologyChart({ technologies }: { technologies: Techno
     const updateChart = () => {
       chart.setOption({
         animation: !reducedMotion.matches,
-        grid: { top: 4, right: 48, bottom: 4, left: 110 },
-        xAxis: { type: 'value', show: false, minInterval: 1, max: Math.max(...technologies.map(({ company, personal }) => company + personal)) + 1 },
+        grid: { top: 4, right: 32, bottom: 4, left: 78 },
+        xAxis: { type: 'value', show: false, minInterval: 1, max: Math.max(...technologies.map(({ company, personal }) => company + personal)) },
         yAxis: {
           type: 'category',
           inverse: true,
           data: selectedTechnologies.map(({ name }) => name),
           axisLine: { show: false },
           axisTick: { show: false },
-          axisLabel: { color: '#475569', fontSize: 13, fontFamily: 'Pretendard Variable, sans-serif', margin: 14 },
+          axisLabel: { color: '#475569', fontSize: 13, fontFamily: 'Pretendard Variable, sans-serif', margin: 6 },
         },
-        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
         series: [{
           name: '선택한 프로젝트',
           type: 'bar',
           data: selectedTechnologies.map(({ count }) => count),
-          barMaxWidth: 16,
+          barMaxWidth: 13,
           showBackground: true,
           backgroundStyle: { color: 'rgba(147, 197, 253, 0.18)', borderRadius: 8 },
           itemStyle: { color: '#60a5fa', borderRadius: 8 },
@@ -72,7 +71,7 @@ export default function TechnologyChart({ technologies }: { technologies: Techno
   }, [technologies, selectedTechnologies])
 
   return (
-    <div className="mb-6 rounded-2xl border border-blue-100 bg-white/55 px-4 py-5 sm:px-6">
+    <div className="mb-4 rounded-2xl border border-blue-100 bg-white/55 px-3 py-4 sm:px-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h3 className="text-base font-semibold text-slate-800">전체 프로젝트 기술 사용 현황</h3>
@@ -90,7 +89,7 @@ export default function TechnologyChart({ technologies }: { technologies: Techno
           ))}
         </fieldset>
       </div>
-      <div ref={chartRef} aria-hidden="true" className="mt-4 w-full" style={{ height: Math.max(technologies.length * 32, 100) }} />
+      <div ref={chartRef} aria-hidden="true" className="pointer-events-none mt-3 w-full [&_text]:tracking-[-0.03em]" style={{ height: Math.max(technologies.length * 26, 100) }} />
       <ul className="sr-only" aria-label="기술별 선택한 프로젝트 수">
         {selectedTechnologies.map(({ name, count }) => <li key={name}>{name}: {count}개</li>)}
       </ul>
