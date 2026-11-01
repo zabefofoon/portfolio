@@ -4,6 +4,7 @@ import SectionNav from './SectionNav'
 import SmoothScroll from './SmoothScroll'
 
 const GearBackground = lazy(() => import('./GearBackground'))
+const TechnologyChart = lazy(() => import('./TechnologyChart'))
 
 type Project = {
   name: string
@@ -118,7 +119,7 @@ function App() {
         '디자인 토큰을 적용 및 다크 모드 지원',
         'Go(Fiber) 기반 API 서버에서 미디어 업로드 및 게시글 작성 API 구현',
       ],
-      technologies: ['Nuxt4', 'Tailwindcss', 'Go'],
+      technologies: ['Nuxt4', 'Tailwindcss', 'Go', 'MySQL'],
     },
     {
       name: '사운드아카이브',
@@ -357,7 +358,7 @@ function App() {
         '플레이스토어 출시',
         '앱스토어 출시',
       ],
-      technologies: ['SvelteKit', 'Tailwindcss', 'Supabase', 'Flutter'],
+      technologies: ['SvelteKit', 'Tailwindcss', 'Supabase', 'Flutter', 'NestJS'],
     },
     {
       name: '다꾸다꾸',
@@ -381,35 +382,29 @@ function App() {
     },
   ]
 
-  const technologyCounts = new Map<string, { name: string; count: number }>()
-  const excludedTechnologies = new Set([
-    'supabase',
-    'apache superset',
-    'google api',
-    'phaser',
-  ])
-  for (const project of [...projects, ...sideProjects]) {
-    const projectTechnologies = new Map<string, string>()
-    for (const item of project.technologies) {
-      const key = item.toLowerCase()
-      if (excludedTechnologies.has(key)) continue
-      const name = /^vue[23]$/.test(key)
-        ? 'Vue'
-        : /^nuxt[34](\/4)?$/.test(key)
-          ? 'Nuxt'
-          : item
-      projectTechnologies.set(name.toLowerCase(), name)
-    }
-    for (const [key, name] of projectTechnologies) {
-      const existing = technologyCounts.get(key)
-      technologyCounts.set(key, {
-        name: existing?.name ?? name,
-        count: (existing?.count ?? 0) + 1,
-      })
+  const technologyCounts = new Map<string, { name: string; company: number; personal: number }>()
+  for (const [group, projectList] of [['company', projects], ['personal', sideProjects]] as const) {
+    for (const project of projectList) {
+      const projectTechnologies = new Map<string, string>()
+      for (const item of project.technologies) {
+        const key = item.toLowerCase()
+        if (['apache superset', 'phaser', 'android', 'swift', 'google api'].includes(key)) continue
+        const name = /^vue[23]$/.test(key)
+          ? 'Vue'
+          : /^nuxt[34](\/4)?$/.test(key)
+            ? 'Nuxt'
+            : item
+        projectTechnologies.set(name.toLowerCase(), name)
+      }
+      for (const [key, name] of projectTechnologies) {
+        const existing = technologyCounts.get(key) ?? { name, company: 0, personal: 0 }
+        existing[group] += 1
+        technologyCounts.set(key, existing)
+      }
     }
   }
   const technologies = [...technologyCounts.values()].sort(
-    (a, b) => b.count - a.count || a.name.localeCompare(b.name),
+    (a, b) => (b.company + b.personal) - (a.company + a.personal) || a.name.localeCompare(b.name),
   )
 
   return (
@@ -564,19 +559,9 @@ function App() {
               <h2 className="mb-4 text-2xl font-bold tracking-tight">
                 회사 프로젝트
               </h2>
-              <ul
-                aria-label="프로젝트 기술별 사용 건수"
-                className="mb-4 flex list-none flex-wrap gap-2 p-0 text-sm"
-              >
-                {technologies.map(({ name, count }) => (
-                  <li
-                    key={name}
-                    className={`technology-badge rounded-full px-3 py-1 ${technologyColors[name] ?? 'bg-gray-100 text-gray-700'}`}
-                  >
-                    {name} ({count}건)
-                  </li>
-                ))}
-              </ul>
+              <Suspense fallback={null}>
+                <TechnologyChart technologies={technologies} />
+              </Suspense>
               {projects.map((project) => (
                 <article
                   key={project.name}
