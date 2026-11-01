@@ -84,7 +84,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - Spring Boot 으로 프론트 서버 구성 및 Redis로 Api 캐싱
 - @g1cloud/vue-ui 사내 공통 라이브러리 참여`,
       technologies: ['Vue2', 'Vue3', 'Spring Boot', 'Scss'],
-      isPersonal: false,
     },
     {
       name: 'ZEROGRAM',
@@ -95,7 +94,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - i18n 적용, 구글 스프레드시트로 언어 동기화
 - Spring Boot 으로 프론트 서버 구성 및 Redis로 Api 캐싱`,
       technologies: ['Vue2', 'Spring Boot', 'Scss'],
-      isPersonal: false,
     },
     {
       name: '페이지 빌더',
@@ -106,7 +104,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - @g1cloud/page-builder-viewer 제작
 - @g1cloud/page-builder-vue-renderer 제작`,
       technologies: ['Vue2', 'Spring Boot', 'Scss'],
-      isPersonal: false,
     },
     {
       name: 'ByLynn',
@@ -116,14 +113,13 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
       description: `
 - 홈페이지·상품목록·상품상세·검색·기획전·룩북·어바웃·관심상품·재입고알림 페이지 담당
 - Spring Boot 으로 프론트 서버 구성 및 Redis로 Api 캐싱
-- PurgeCss를 적용하여, Css의 소스 크기를 300% 이상 줄인 경험
+- PurgeCSS를 적용해 사용하지 않는 CSS를 제거하고 스타일 파일 크기 최적화
 - SpringBoot에서 컨트롤러에서 url에 맵핑된 각각의 html을 응답하던 기존의 MPA방식에서, 하나의 컨트롤러와 하나의 html을 응답하는 SPA 방식으로 전환 경험
 - 라이브러리 교체로, 초기 로드속도를 3초 이상에서 1초 이내로 개선
-- 컨텐츠가 로딩중일 때, 표시되는 Skeletor UI를 적극적으로 적용하여 웹 성능 지표인 CLS(누적 레이아웃 이동)를 최대 0.001초 달성 경험
+- 콘텐츠 로딩 중 스켈레톤 UI를 적용해 레이아웃 이동을 줄이고 CLS 0.001 달성
 - Vitest를 사용하여, 컴포넌트 단위테스트 경험
 - Project Leader`,
       technologies: ['Vue3', 'Spring Boot', 'Scss'],
-      isPersonal: false,
     },
     {
       name: 'T Deal 커머스',
@@ -139,7 +135,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 버그 리포팅을 위한 Sentry 연동
 - Hackle 연동으로 기능 A/B테스트 `,
       technologies: ['Vue2', 'Scss'],
-      isPersonal: false,
     },
     {
       name: 'Nboard 광고 리포트 관리',
@@ -152,7 +147,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 브랜딩 캠페인 매체의 검색·등록·삭제 및 중복 확인 기능을 구현
 - 리포트 검증에 사용하는 매체 목록을 API 기반으로 전환해 화면에서 관리할 수 있도록 개선`,
       technologies: ['Vue2', 'Scss', 'Apache Superset', 'MySQL'],
-      isPersonal: false,
     },
     {
       name: 'SK그룹 광고 집행 관리 PoC',
@@ -164,7 +158,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 광고주, 매체, 게재면, 광고비, 게재일 등을 입력하는 폼에 필수값 검증과 소재 파일 업로드를 적용.
 `,
       technologies: ['Vue3', 'Scss'],
-      isPersonal: false,
     },
     {
       name: '짤스튜디오',
@@ -179,7 +172,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - EC2 배포 환경에서, Cloudflare Pages로 운영 배포 환경 개선 및 비용 최적화
 - Rust Axum을 사용한 API 개발 참여`,
       technologies: ['Nuxt3', 'Nuxt4', 'Rust'],
-      isPersonal: false,
     },
     {
       name: 'MCN 전용 짤스튜디오',
@@ -190,7 +182,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 짤스튜디오 API 연동으로, 인증·정산·채널인증·채널관리·멤버관리 기능 개발
 - 디자인 토큰 적용`,
       technologies: ['Nuxt3', 'Tailwindcss'],
-      isPersonal: false,
     },
     {
       name: '고고고',
@@ -204,7 +195,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 쿠폰 목록에 가상 스크롤과 캐시·스크롤 복원 적용
 - GitHub Actions 기반 자동 버전 관리와 사용자 행동 이벤트 로깅 구성`,
       technologies: ['Nuxt4', 'SCSS'],
-      isPersonal: false,
     },
     {
       name: '사운드아카이브',
@@ -216,7 +206,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 음원 재생 UI·채널인증·구독결제 개발
 - GitHub Actions 기반 자동 버전 관리와 사용자 행동 이벤트 로깅 구성`,
       technologies: ['Nuxt4', 'Tailwindcss'],
-      isPersonal: false,
     },
     {
       name: 'Asked',
@@ -229,68 +218,67 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
 - 가상스크롤을 적용으로, 프론트 기능 개선 및 핸드폰 발열 개선
 - 브릿지 통신으로 앱과 상호작용`,
       technologies: ['Nuxt4', 'Tailwindcss', 'Go'],
-      isPersonal: false,
     },
+  ]
+
+  const sideProjects = [
     {
       name: 'Markup Manager',
       url: 'https://zabefofoon.github.io/mm-embedded/',
-      period: '2023.02 - 2024.12',
       summary: '로우코드 웹 툴',
-      description: '',
+      description: `- iframe 으로 사용되도록 message 내장`,
       technologies: ['Vue3', 'Tailwindcss'],
-      isPersonal: true,
     },
     {
       name: 'Memoku',
       url: 'http://memoku-next.vercel.app/',
-      period: '2024.01 - 2026.02',
       summary: '할일관리 앱',
-      description: '',
-      technologies: ['NextJS', 'Tailwindcss', 'Google API', 'PWA'],
-      isPersonal: true,
+      description: `- 구글 스프레드 시트에 데이터 저장`,
+      technologies: ['NextJS', 'Tailwindcss', 'Google API'],
     },
     {
       name: '비트조인 랜덤 디펜스',
       url: 'https://play.google.com/store/apps/details?id=com.bitejoin.defense&pcampaignid=web_share',
-      period: '2024.11 - 2025.07',
       summary: '게임',
-      description: '',
+      description: `- PWA 오프라인 모드
+- PhaserJS 2D 엔진 사용
+- 플레이스토어 출시`,
       technologies: ['Nuxt3', 'Phaser', 'Tailwindcss', 'Flutter'],
-      isPersonal: true,
     },
     {
       name: 'Just Pixel Studio',
       url: 'https://justpixelstudio.com/',
-      period: '2025.7 - 2025.10',
       summary: '도트 그림판',
-      description: '',
+      description: `- 이미지 편집 기능
+- 연속된 이미지 재생 기능`,
       technologies: ['Nuxt4', 'Tailwindcss', 'Supabase', 'Flutter'],
-      isPersonal: true,
     },
     {
       name: 'Alarmoku',
       url: 'https://alarmoku.com/landing',
-      period: '2026.02 - 2026.08',
       summary: '알람 앱',
-      description: '',
+      description: `- PWA 오프라인 모드
+- 지역별 오늘의 날씨 기능
+- 플레이스토어 출시`,
       technologies: ['SvelteKit', 'Tailwindcss', 'NestJS', 'Flutter'],
-      isPersonal: true,
     },
     {
       name: 'Urlala',
       url: 'https://urlala.dev/ko',
-      period: '2026.04 - 2026.10',
-      summary: '북마크 관리 서비스',
-      description: '',
+      summary: '북마크 관리',
+      description: `- 크롬 확장프로그램 연동
+- 플레이스토어 출시
+- 앱스토어 출시`,
       technologies: ['SvelteKit', 'Tailwindcss', 'Supabase', 'Flutter'],
-      isPersonal: true,
     },
     {
       name: '다꾸다꾸',
       url: 'https://dakkudakku.com/ko',
-      period: '2026.09 - 2026.10',
-      summary: '다이어리 커뮤니티',
-      description: '',
+      summary: '커뮤니티',
+      description: `- 이미지 편집기능
+- 소켓을 사용한 채팅기능
+- 플레이스토어 출시
+- 앱스토어 출시`,
       technologies: [
         'SvelteKit',
         'Tailwindcss',
@@ -298,7 +286,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
         'Android',
         'Swift',
       ],
-      isPersonal: true,
     },
   ]
 
@@ -343,7 +330,7 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
               <div className="relative m-5 flex flex-col gap-8">
                 <div className="absolute left-0.75 h-full border-l-2 border-dotted border-gray-500"></div>
                 {timelines.map((timeline, index) => (
-                  <div className="relative flex items-start gap-2">
+                  <div key={index} className="relative flex items-start gap-2">
                     {index === 0 && (
                       <div className="absolute left-0.5 h-3 w-1 bg-white dark:bg-black"></div>
                     )}
@@ -359,8 +346,8 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
                           className="text-[16px] font-bold"
                           dangerouslySetInnerHTML={{ __html: timeline.title }}
                         ></p>
-                        {timeline.items.map((item) => (
-                          <p className="text-[15px]">
+                        {timeline.items.map((item, index) => (
+                          <p key={index} className="text-[15px]">
                             ·{' '}
                             <span
                               dangerouslySetInnerHTML={{ __html: item }}
@@ -410,11 +397,6 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
                   key={project.name}
                   className="relative flex overflow-hidden rounded-2xl border border-gray-200"
                 >
-                  {project.isPersonal && (
-                    <p className="absolute top-1 left-1 rounded-full bg-blue-100 px-1.5 py-0.5 text-xs text-blue-500">
-                      개인
-                    </p>
-                  )}
                   <img className="aspect-square w-full max-w-50" />
                   <div className="px-4 py-2">
                     <div className="mt-1 text-[11px] text-gray-500">
@@ -454,6 +436,49 @@ Claude와 Codex를 일을 하는데 적극적으로 사용하고 있습니다. A
             </div>
           </section>
           {/* 프로젝트 */}
+
+          {/* 개인 프로젝트 */}
+          <section className="relative w-full border-t border-dashed border-gray-200 py-20">
+            <h2 className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rotate-270 text-3xl font-bold text-gray-200">
+              PERSONAL
+            </h2>
+            <div className="mx-auto grid max-w-200 grid-cols-[repeat(auto-fit,minmax(200px,1fr))] flex-col gap-4">
+              {sideProjects.map((project) => (
+                <a
+                  key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  className="relative flex flex-col overflow-hidden rounded-2xl border border-gray-200"
+                >
+                  <img className="aspect-square w-full" />
+                  <div className="px-4 py-2">
+                    <div className="mt-1 text-[11px] text-gray-500">
+                      <span className="text-xs text-gray-500">
+                        {project.summary}
+                      </span>
+                    </div>
+                    <div>{project.name}</div>
+
+                    <div
+                      className="mt-2 text-sm text-pretty break-keep whitespace-pre-wrap text-gray-800"
+                      dangerouslySetInnerHTML={{ __html: project.description }}
+                    ></div>
+                    <div className="mt-4 flex flex-wrap gap-1.5 text-xs">
+                      {project.technologies.map((technology) => (
+                        <p
+                          key={technology}
+                          className={`rounded-full px-1.5 py-0.5 ${technologyColors[technology] ?? 'bg-gray-100 text-gray-700'}`}
+                        >
+                          {technology}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+          {/* 개인 프로젝트 */}
         </div>
       </main>
       <footer>footer</footer>
