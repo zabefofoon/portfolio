@@ -17,7 +17,7 @@ button {
 .scroll-opacity {
   animation: fade-in linear both;
   animation-timeline: scroll();
-  animation-range: 0px 240px;
+  animation-range: 0px 300px;
 }
 
 @keyframes fade-in {
@@ -27,7 +27,6 @@ button {
   }
   to {
     opacity: 0;
-    scale: 0.98;
-    translate: 0 100px;
+    translate: 0 160px;
   }
 }
